@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewCours"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp"
+    app:strokeWidth="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- Indicateur de couleur à gauche -->
+        <View
+            android:id="@+id/viewColorIndicator"
+            android:layout_width="6dp"
+            android:layout_height="0dp"
+            android:background="#2196F3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!-- Badge Type de cours (en haut à droite) -->
+        <TextView
+            android:id="@+id/tvTypeCours"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CM"
+            android:textSize="12sp"
+            android:textColor="@android:color/white"
+            android:background="@drawable/badge_cm"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Nom du cours -->
+        <TextView
+            android:id="@+id/tvNomCours"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Mathématiques Appliquées"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/viewColorIndicator"
+            app:layout_constraintEnd_toStartOf="@id/tvTypeCours" />
+
+        <!-- Nom du professeur -->
+        <TextView
+            android:id="@+id/tvProfesseur"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Prof. Dupont"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:drawableStart="@android:drawable/ic_menu_myplaces"
+            android:drawablePadding="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tvNomCours"
+            app:layout_constraintStart_toEndOf="@id/viewColorIndicator"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Salle -->
+        <TextView
+            android:id="@+id/tvSalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Salle: B201"
+            android:textSize="14sp"
+            android:textColor="#666666"
+            android:layout_marginTop="4dp"
+            android:layout_marginStart="12dp"
+            android:drawableStart="@android:drawable/ic_dialog_map"
+            android:drawablePadding="4dp"
+            app:layout_constraintTop_toBottomOf="@id/tvProfesseur"
+            app:layout_constraintStart_toEndOf="@id/viewColorIndicator"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Séparateur -->
+        <View
+            android:id="@+id/separator"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            android:layout_marginTop="12dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSalle"
+            app:layout_constraintStart_toEndOf="@id/viewColorIndicator"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Jour -->
+        <TextView
+            android:id="@+id/tvJour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lundi"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#2196F3"
+            android:layout_marginTop="8dp"
+            android:layout_marginStart="12dp"
+            app:layout_constraintTop_toBottomOf="@id/separator"
+            app:layout_constraintStart_toEndOf="@id/viewColorIndicator" />
+
+        <!-- Horaire -->
+        <TextView
+            android:id="@+id/tvHoraire"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="08:00 - 10:00"
+            android:textSize="13sp"
+            android:textColor="#666666"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@android:drawable/ic_menu_recent_history"
+            android:drawablePadding="4dp"
+            app:layout_constraintTop_toBottomOf="@id/separator"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
