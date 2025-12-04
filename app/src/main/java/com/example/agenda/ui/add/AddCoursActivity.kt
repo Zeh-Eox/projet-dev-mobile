@@ -148,31 +148,36 @@ class AddCoursActivity : AppCompatActivity() {
      * Remplit le formulaire avec les données d'un cours existant
      */
     private fun fillFormWithCours(cours: Cours) {
-        binding.etNomCours.setText(cours.nomCours)
-        binding.etProfesseur.setText(cours.professeur)
-        binding.etSalle.setText(cours.salle)
+        binding.etNomCours.setText(cours.nomCours ?: "")
+        if (!cours.nomCours.isNullOrEmpty()) {
+            binding.etNomCours.setSelection(cours.nomCours.length)
+        }
 
-        // Sélectionne le jour dans le spinner
+        binding.etProfesseur.setText(cours.professeur ?: "")
+        if (!cours.professeur.isNullOrEmpty()) {
+            binding.etProfesseur.setSelection(cours.professeur.length)
+        }
+
+        binding.etSalle.setText(cours.salle ?: "")
+        if (!cours.salle.isNullOrEmpty()) {
+            binding.etSalle.setSelection(cours.salle.length)
+        }
+
         val jourPosition = JourSemaine.getAllJours().indexOf(cours.jour)
-        if (jourPosition >= 0) {
-            binding.spinnerJour.setSelection(jourPosition)
-        }
+        if (jourPosition >= 0) binding.spinnerJour.setSelection(jourPosition)
 
-        // Sélectionne le type dans le spinner
         val typePosition = TypeCours.values().indexOf(cours.typeCours)
-        if (typePosition >= 0) {
-            binding.spinnerTypeCours.setSelection(typePosition)
-        }
+        if (typePosition >= 0) binding.spinnerTypeCours.setSelection(typePosition)
 
-        // Affiche les heures
         heureDebut = cours.heureDebut
         heureFin = cours.heureFin
         binding.btnSelectHeureDebut.text = heureDebut
         binding.btnSelectHeureFin.text = heureFin
 
-        // Notification
         binding.switchNotification.isChecked = cours.notificationActive
     }
+
+
 
     /**
      * Sauvegarde le cours (ajout ou modification)
